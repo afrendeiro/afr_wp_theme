@@ -1,4 +1,4 @@
-afr_wp_theme
+afr - Wordpress Theme
 ============
 
-A minimalistic Wordpress theme based on Bare Responsive.
+A minimalistic Wordpress theme based on Bare Responsive (http://www.hongkiat.com/blog/wordpress-responsive-template/).
