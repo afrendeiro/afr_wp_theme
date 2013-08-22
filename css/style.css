@@ -81,8 +81,23 @@ nav h1 {
 	#socialbuttons{
 		margin-top: 20px;
 	}
-	#socialbuttons:hover {
 
+	.socialIcons {
+		opacity: 1;
+	    -moz-transition: all 0.3s ease-out;  /* FF4+ */
+	    -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+	    -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+	    -ms-transition: all 0.3s ease-out;  /* IE10? */
+	    transition: all 0.3s ease-out;  
+	}
+	
+	.socialIcons:hover {
+		opacity: .8;
+		filter:alpha(opacity=80); /* For IE8 and earlier */
+	}
+
+	.social {
+		margin-top: 20px;
 	}
 
 	#cc{
