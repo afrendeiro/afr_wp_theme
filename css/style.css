@@ -61,9 +61,33 @@ h1, h2, h3, h4, h5, h6 {
 /** full navigation **/
 #navbar { display: none; }
 
-nav h1 {
+#sitetitle {
 	font-size: 55px;
 	color: #C0C0C0;
+}
+
+#socialbuttons{
+	margin-top: 20px;
+}
+
+.socialIcons {
+	opacity: 1;
+    -moz-transition: all 0.3s ease-out;  /* FF4+ */
+    -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+    -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+    -ms-transition: all 0.3s ease-out;  /* IE10? */
+    transition: all 0.3s ease-out;  
+}
+
+.socialIcons:hover {
+	opacity: .8;
+	filter:alpha(opacity=80); /* For IE8 and earlier */
+}
+
+#cc{
+	position:fixed;
+	bottom: 10px;
+	right: 10px;
 }
 
 @media only screen and (min-width : 820px) {
@@ -76,33 +100,10 @@ nav h1 {
 		top: 20%;
 		left: 2%;
 	}
-
-	#socialbuttons{
-		margin-top: 20px;
-	}
-
-	.socialIcons {
-		opacity: 1;
-	    -moz-transition: all 0.3s ease-out;  /* FF4+ */
-	    -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
-	    -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
-	    -ms-transition: all 0.3s ease-out;  /* IE10? */
-	    transition: all 0.3s ease-out;  
-	}
 	
-	.socialIcons:hover {
-		opacity: .8;
-		filter:alpha(opacity=80); /* For IE8 and earlier */
-	}
-
-	.social {
-		margin-top: 20px;
-	}
-
-	#cc{
-		position:fixed;
-		bottom: 10px;
-		right: 10px;
+	nav h1 {
+		font-size: 55px;
+		color: #C0C0C0;
 	}
 
 	#n ul {

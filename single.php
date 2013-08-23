@@ -9,7 +9,7 @@
 						<h2 class="bigger"><?php the_title(); ?></h2>
 						<span class="meta">
 							<i>Published <time datetime="<?php echo the_time('Y-m-j'); ?>"><?php echo the_time(get_option('date_format')); ?></time> by <?php the_author_posts_link(); ?>.</i>
-							<i>Filed under <a href="#" rel="category"><?php the_category(', '); ?></a>. Total of <a href="<?php comments_link(); ?> "><?php comments_number( 'no comments', '1 comment', '% comments' ); ?></a> in the discussion.<?php edit_post_link('Admin Edit', ' ', '.'); ?></i>
+							<i>Filed under <a href="#" rel="category"><?php the_category(', '); ?></a>.</i>
 						</span>
 					</header>
 					

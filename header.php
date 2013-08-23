@@ -14,7 +14,7 @@
   <link href='http://fonts.googleapis.com/css?family=Cuprum:400,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/menuslider.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/animate.js"></script>
 <!--[if lt IE 9]>
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -28,25 +28,27 @@
 <?php add_filter('show_admin_bar', '__return_false');?>
 
 <nav id="n">
-<h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-<?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'container' => false, 'theme_location' => 'header-menu' ) ); ?>
+
+  <h1 id='sitetitle'><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+
+  <div id="navbar"><a href="#">Nav Menu</a></div>
+
+  <?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'container' => false, 'theme_location' => 'header-menu' ) ); ?>
 
   <div id='socialbuttons'>
-          <!-- Icons from here: http://www.pixelfrau.com/free-gray-circle-social-media-icons -->
-          <a class="socialIcons" href="http://twitter.com/afrendeiro" title="Twitter" alt="Twitter Icon" target="_blank"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/twitter-32.png"></a>
-          <a class="socialIcons" href="http://gplus.to/andrerendeiro" title="GooglePlus" alt="Google Plus Icon" target="_blank"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/googleplus-32.png"></a>
-          <a class="socialIcons" href="http://github.com/afrendeiro" target="_blank" title="Github" alt="Github Icon"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/github-32.png"></a>
-          <a class="socialIcons" href="mailto:afrendeiro@gmail.com" title="Email" alt="Twitter Icon" target="_blank"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/email-32.png"></a>
-          <a class="socialIcons" href="<?php bloginfo('rss2_url'); ?>" target="_blank" title="RSS" alt="RSS Icon"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/rss-32.png"></a>
+    <!-- Icons from here: http://www.pixelfrau.com/free-gray-circle-social-media-icons -->
+    <a class="socialIcons" href="http://twitter.com/afrendeiro" title="Twitter" alt="Twitter Icon" target="_blank"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/twitter-32.png"></a>
+    <a class="socialIcons" href="http://gplus.to/andrerendeiro" title="GooglePlus" alt="Google Plus Icon" target="_blank"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/googleplus-32.png"></a>
+    <a class="socialIcons" href="http://github.com/afrendeiro" target="_blank" title="Github" alt="Github Icon"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/github-32.png"></a>
+    <script type="text/javascript" src="<?php bloginfo('template_directory');?>/js/obfuscate-email_nav.js" language="javascript"></script>
+    <a class="socialIcons" href="<?php bloginfo('rss2_url'); ?>" target="_blank" title="RSS" alt="RSS Icon"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/rss-32.png"></a>
   </div>
 
 </nav>
 	
   <div id="cc">
-      <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img id='CC' alt="Creative Commons License" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a>
+      <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img id='CC' alt="Creative Commons License" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
   </div>
-
-	<div id="navbar"><a href="#">Nav Menu</a></div>
 	
 	<div id="mainbody">
 		<header id="top">
@@ -56,3 +58,4 @@
 			</div>		
       -->
 		</header>
+
