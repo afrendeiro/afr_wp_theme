@@ -17,6 +17,6 @@
       link += (key.charAt(ltr))
     }
   }
-document.write("<a class='socialIcons' title='Email' alt='Mail Icon' target='_blank' href='mailto:"+link+"'><img class='social' src='wp-content/themes/afr/img/32x32/email-32.png'></a>")
+document.write("<a class='socialIcons' title='Email' alt='Mail Icon' target='_blank' href='mailto:"+link+"'><img class='social' src='/wp-content/themes/afr/img/32x32/email-32.png'></a>")
 }
 //-->

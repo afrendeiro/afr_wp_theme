@@ -259,10 +259,12 @@ h1, h2, h3, h4, h5, h6 {
 
 #sidebar .widget ul li a:hover { color: #fff; background: #5d9de5; text-decoration: none; }
 
-
 /** search **/
-#s { padding: 3px 5px; color: #565656; border: 1px solid #bbb; outline: none; width: 66%; font-size: 1.2em; }
+#s { font-family: 'Cuprum', sans-serif; padding: 3px 5px; color: #565656; border: 1px solid #bbb; outline: none; width: 66%; font-size: 1.2em; }
 
+#searchsubmit {
+	font-family: 'Cuprum', sans-serif; border-radius: 10px;
+}
 
 /** footer **/
 footer { clear: both; text-align: center; font-style: normal; padding: 10px; font-size: 1.4em; color: #434343; padding-bottom: 80px; }
