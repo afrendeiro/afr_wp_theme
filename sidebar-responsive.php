@@ -1,6 +1,11 @@
 		<aside id="sidebar-responsive" class="wrapper" role="complementary">
 		<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar(2) ) : else : ?>
 				<div class="widget">
+					<h3>Search</h3>
+					<?php get_search_form(); ?>
+				</div>
+
+				<div class="widget">
 					<h3 class="wtitle">Blog Categories</h3>
 					<ul>
 						<?php wp_list_categories('title_li='); ?>

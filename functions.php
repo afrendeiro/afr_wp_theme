@@ -29,6 +29,42 @@ if(function_exists('register_sidebar')) {
 		'before_title' => '<h3 class="wtitle">',
 		'after_title' => '</h3>'
 	));
+
+	register_sidebar(array(
+		'name' => 'Research Sidebar',
+		'id' => 'research',
+		'before_widget' => '<div class="widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="wtitle">',
+		'after_title' => '</h3>'
+	));
+
+	register_sidebar(array(
+		'name' => 'Research Responsive Sidebar',
+		'id' => 'research_responsive',
+		'before_widget' => '<div class="widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="wtitle">',
+		'after_title' => '</h3>'
+	));
+
+	register_sidebar(array(
+		'name' => 'About Sidebar',
+		'id' => 'about',
+		'before_widget' => '<div class="widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="wtitle">',
+		'after_title' => '</h3>'
+	));
+
+	register_sidebar(array(
+		'name' => 'About Responsive Sidebar',
+		'id' => 'about_responsive',
+		'before_widget' => '<div class="widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="wtitle">',
+		'after_title' => '</h3>'
+	));
 }
 
 /**

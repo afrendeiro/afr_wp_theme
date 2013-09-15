@@ -7,7 +7,8 @@
 				  </header>
 				  
 				  <section class="post-content">
-				  	<p>It seems like this post is missing somewhere. Double-check the URL or try navigating back via the website menu links.</p>
+				  	<p>It seems you followed a link to a page that doesn't exist anymore.</p>
+				  	<iframe width="420" height="315" src="//www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" frameborder="0" allowfullscreen></iframe>
 				  </section>
 				</article>
 			</div> <!-- /#main -->

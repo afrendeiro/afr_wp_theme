@@ -37,11 +37,11 @@
 
   <div id='socialbuttons'>
     <!-- Icons from here: http://www.pixelfrau.com/free-gray-circle-social-media-icons -->
-    <a class="socialIcons" href="http://twitter.com/afrendeiro" title="Twitter" alt="Twitter Icon" target="_blank"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/twitter-32.png"></a>
-    <a class="socialIcons" href="http://gplus.to/andrerendeiro" title="GooglePlus" alt="Google Plus Icon" target="_blank"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/googleplus-32.png"></a>
-    <a class="socialIcons" href="http://github.com/afrendeiro" target="_blank" title="Github" alt="Github Icon"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/github-32.png"></a>
+    <a class="socialIcons" href="http://twitter.com/afrendeiro" title="Follow me on Twitter" alt="Twitter Icon" target="_blank"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/twitter-32.png"></a>
+    <a class="socialIcons" href="http://gplus.to/andrerendeiro" title="Add me on Google+" alt="Google Plus Icon" target="_blank"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/googleplus-32.png"></a>
+    <a class="socialIcons" href="http://github.com/afrendeiro" title="Fork me on Github" alt="Github Icon" target="_blank"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/github-32.png"></a>
     <script type="text/javascript" src="<?php bloginfo('template_directory');?>/js/obfuscate-email_nav.js" language="javascript"></script>
-    <a class="socialIcons" href="<?php bloginfo('rss2_url'); ?>" target="_blank" title="RSS" alt="RSS Icon"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/rss-32.png"></a>
+    <a class="socialIcons" href="<?php bloginfo('rss2_url'); ?>" title="Subscribe to my RSS feed" alt="RSS Icon" target="_blank"><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/rss-32.png"></a>
   </div>
 
 </nav>
