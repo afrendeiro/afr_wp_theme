@@ -1,9 +1,26 @@
 <?php get_header(); ?>
 		<div id="content" class="wrapper">
-			<?php get_sidebar(); ?>
+			<?//** TO SUPORT LABNOTEBOOK-ONLY SEARCH**//?>
+			<?php
+				$type = get_post_type();
+			    if ($type == 'labnotebook') {
+			    	get_sidebar('labnotebook');
+			    } else {
+			    	get_sidebar();
+			    };
+			?>
 			
-			<div id="main">
+			<div id="main" class="post">
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+					<?//** TO HAVE LABNOTEBOOK TITLE**//?>
+					<?php
+						$type = get_post_type();
+				    	if ($type == 'labnotebook') {
+				    		echo "<header class='posthead'>";
+							echo "<h2 class='bigger'>Lab Notebook</h2>";
+							echo "</header>";
+				    	};
+					?>
 				<article id="post-<?php the_ID(); ?>" class="post" role="article">
 					<header class="posthead">
 						<h2 class="bigger"><?php the_title(); ?></h2>
@@ -17,9 +34,13 @@
 						<?php the_content(); ?>
 					</section>
 					
-					<?php // uncomment for tags the_tags('<p class="tags"><span>Post Tags:</span> ', ', ', '</p>'); ?>
+					<?php the_tags('<p class="tags"><span>Post Tags:</span> ', ', ', '</p>'); ?>
 					
-					<?php comments_template(); ?>
+					<?//** TO DISABLE COMMENTS ON LABNOTEBOOK POSTS **//?>
+					<?php
+						$type = get_post_type();
+					    if($type !== 'labnotebook') {comments_template();};
+					?>
 				</article><!-- /.post -->
 				<?php endwhile; ?>
 				
@@ -40,5 +61,13 @@
 		
 		<br style="clear:both;">
 
-		<?php get_sidebar( 'responsive' ); ?>
+		<?//** TO SUPORT LABNOTEBOOK-ONLY SEARCH**//?>
+			<?php
+				$type = get_post_type();
+			    if($type == 'labnotebook') {
+			    	get_sidebar('labnotebook_responsive');
+			    } else {
+			    	get_sidebar('responsive');
+			    };
+			?>
 <?php get_footer(); ?>

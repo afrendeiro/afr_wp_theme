@@ -61,11 +61,6 @@ h1, h2, h3, h4, h5, h6 {
 /** full navigation **/
 #navbar { display: none; }
 
-#sitetitle {
-	font-size: 55px;
-	color: #C0C0C0;
-}
-
 #socialbuttons{
 	margin-top: 20px;
 }
@@ -88,6 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 	position:fixed;
 	bottom: 10px;
 	right: 10px;
+	z-index: 100000;
 }
 
 @media only screen and (min-width : 820px) {
@@ -102,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 	}
 	
 	nav h1 {
-		font-size: 55px;
+		font-size: 58px;
 		color: #C0C0C0;
 	}
 
@@ -113,13 +109,12 @@ h1, h2, h3, h4, h5, h6 {
 
 	#n ul li { font-size: 55px; font-weight: bold; text-shadow: 0px 1px 0px #fff;}
 	#n ul li a:hover {text-decoration: none;}
-	#n ul li a {color: #A6A6A6;}
-	#n ul li + li a {color: #333333;}
-	#n ul li + li +li a {color: #808080;}
+	#n ul li a {color: #A6A6A6; font-size: 80%;}
+	#n ul li + li a {color: #333333; font-size: 95%;}
+	#n ul li + li +li a {color: #808080; font-size: 65%;}
+	#n ul li + li +li +li a {color: #A6A6A6; font-size: 110%;}
 
 	#n ul li:hover > a { text-decoration: none; color: #5d9de5;}
-	#n ul li + li:hover > a { text-decoration: none; color: #5d9de5;}
-	#n ul li + li + li:hover > a { text-decoration: none; color: #5d9de5;}
 
 	#content { width: 80%; position: relative; float: left; margin-left:240px;}
 
@@ -291,12 +286,6 @@ html[xmlns] .clearfix { display: block; }
 	background: linear-gradient(to bottom,  #242424 0%,#2a2a2a 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#242424', endColorstr='#2a2a2a',GradientType=0 );
 	width: 100%; 
-	}
-	
-	#cc{
-		position:fixed;
-		bottom: 10px;
-		right: 10px;
 	}
 
 	nav {

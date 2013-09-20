@@ -126,7 +126,7 @@ function labnotebook() {
 		'not_found'          => __( 'No entries found' ),
 		'not_found_in_trash' => __( 'No entries found in the Trash' ), 
 		'parent_item_colon'  => '',
-		'menu_name'          => 'Lab Notebook entries'
+		'menu_name'          => 'Lab Notebook'
 	);
 	$args = array(
 		'labels'        => $labels,
@@ -149,9 +149,23 @@ function taxonomies() {
         'labnotebook',
         array(
             'labels' => array(
-                'name' => 'Experiment',
+                'name' => 'Experiments',
                 'add_new_item' => 'Add New Experiment',
                 'new_item_name' => "New Experiment"
+            ),
+            'show_ui' => true,
+            'show_tagcloud' => false,
+            'hierarchical' => true
+        )
+    );
+    register_taxonomy(
+        'analysis',
+        'labnotebook',
+        array(
+            'labels' => array(
+                'name' => 'Analysis',
+                'add_new_item' => 'Add New Analysis',
+                'new_item_name' => "New Analysis"
             ),
             'show_ui' => true,
             'show_tagcloud' => false,

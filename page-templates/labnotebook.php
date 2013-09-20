@@ -9,15 +9,15 @@ Template Name: Lab Notebook page
 			
 			<div id="main" class="post">
 
-					<?php the_content(); ?>
-
-					<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+				<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 					
 					<header class="posthead">
 						<h2 class="bigger"><?php the_title(); ?></h2>
 						<h3>My Open Electronic Online Lab Notebook</h3>
 					</header>
 
+					<?php the_content(); ?>
+					
 					<?php 
 			        $type = 'labnotebook';
 			        $args = array (
@@ -30,31 +30,35 @@ Template Name: Lab Notebook page
 			        $temp = $wp_query; // assign ordinal query to temp variable for later use  
 			        $wp_query = null;
 			        $wp_query = new WP_Query($args); ?>
+
 			        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-					<article id="post-<?php the_ID(); ?>" class="post postbrdr" role="article">
-						<header class="posthead">
-							<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-							<span class="meta">
-								<i>Published <time datetime="<?php echo the_time('Y-m-j'); ?>"><?php echo the_time(get_option('date_format')); ?></time> by <?php the_author_posts_link(); ?>.</i>
-								<i>Filed under <a href="#" rel="category"><?php the_category(', '); ?></a>.</i>
-							</span>
-						</header>
 						
-						<section class="post-content clearfix">
-							<?php the_content(); ?>
-						</section>
-					</article>
+						<article id="post-<?php the_ID(); ?>" class="post postbrdr" role="article">
+							<header class="posthead">
+								<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+								<span class="meta">
+									<i>Published <time datetime="<?php echo the_time('Y-m-j'); ?>"><?php echo the_time(get_option('date_format')); ?></time> by <?php the_author_posts_link(); ?>.</i>
+									<i>Filed under <a href="#" rel="category"><?php the_category(', '); ?></a>.</i>
+								</span>
+							</header>
+							
+							<section class="post-content clearfix">
+								<?php the_content(); ?>
+							</section>
+						</article>
+
 					<?php endwhile; ?>
+
 			        <?php else : ?>
 			            <h2>Not Found</h2>
 			            <?php get_search_form(); ?>
 			        <?php endif; ?>
+
 			        <?php $wp_query = $temp; ?>
 
 				<?php endwhile; // end of the loop. ?>
 				
 			</div> <!-- /#main -->
-			
 			
 		</div> <!-- /#content -->
 		
