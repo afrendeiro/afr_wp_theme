@@ -65,6 +65,24 @@ if(function_exists('register_sidebar')) {
 		'before_title' => '<h3 class="wtitle">',
 		'after_title' => '</h3>'
 	));
+
+	register_sidebar(array(
+		'name' => 'Lab Notebook Sidebar',
+		'id' => 'labnotebook',
+		'before_widget' => '<div class="widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="wtitle">',
+		'after_title' => '</h3>'
+	));
+
+	register_sidebar(array(
+		'name' => 'Lab Notebook Responsive Sidebar',
+		'id' => 'labnotebook_responsive',
+		'before_widget' => '<div class="widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="wtitle">',
+		'after_title' => '</h3>'
+	));
 }
 
 /**
@@ -94,4 +112,52 @@ function remove_more_jump($link) {
 add_filter('the_content_more_link', 'remove_more_jump');
 
 
+function labnotebook() {
+	$labels = array(
+		'name'               => _x( 'Lab Notebook', 'post type general name' ),
+		'singular_name'      => _x( 'Lab Notebook', 'post type singular name' ),
+		'add_new'            => _x( 'Add New', 'Entry' ),
+		'add_new_item'       => __( 'Add New Entry' ),
+		'edit_item'          => __( 'Edit Entry' ),
+		'new_item'           => __( 'New Entry' ),
+		'all_items'          => __( 'All Entries' ),
+		'view_item'          => __( 'View Entry' ),
+		'search_items'       => __( 'Search Entries' ),
+		'not_found'          => __( 'No entries found' ),
+		'not_found_in_trash' => __( 'No entries found in the Trash' ), 
+		'parent_item_colon'  => '',
+		'menu_name'          => 'Lab Notebook entries'
+	);
+	$args = array(
+		'labels'        => $labels,
+		'description'   => 'Holds the Lab Notebook\'s specific data',
+		'public'        => true,
+		'taxonomies'    => array('category'),
+		'menu_position' => 5,
+		'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments', 'page-attributes' ),
+		'hierarchical'  => true,
+		'has_archive'   => true,
+		'has_archive' => 'labnotebook'
+	);
+	register_post_type( 'labnotebook', $args );	
+}
+add_action( 'init', 'labnotebook' );
+
+function taxonomies() {
+    register_taxonomy(
+        'experiment',
+        'labnotebook',
+        array(
+            'labels' => array(
+                'name' => 'Experiment',
+                'add_new_item' => 'Add New Experiment',
+                'new_item_name' => "New Experiment"
+            ),
+            'show_ui' => true,
+            'show_tagcloud' => false,
+            'hierarchical' => true
+        )
+    );
+}
+add_action( 'init', 'taxonomies', 0 );
 ?>

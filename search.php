@@ -1,20 +1,32 @@
 <?php get_header(); ?>
 		<div id="content" class="wrapper">
-			<?php get_sidebar(); ?>
-			
+			<?php
+			    if(isset($_GET['post_type'])) {
+			        $type = $_GET['post_type'];
+			        if($type == 'labnotebook') {?>
+			        	<?php get_sidebar('labnotebook'); ?>
+			        <?php    
+			        } else{?>
+			             <?php get_sidebar(); ?>
+			        <?php }
+			    }
+			?>
+						
 			<div id="main">
 			<?php if ( have_posts() ) : ?>
 				<header class="archiveshead">
 					<h2>Search Results for '<?php echo esc_attr(get_search_query()); ?>'</h2>
 				</header>
-				
+			
 				<?php while (have_posts()) : the_post(); ?>
+
+					
 				<article id="post-<?php the_ID(); ?>" class="post postbrdr" role="article">
 					<header class="posthead">
 						<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 						<span class="meta">
 							<i>Published <time datetime="<?php echo the_time('Y-m-j'); ?>"><?php echo the_time(get_option('date_format')); ?></time> by <?php the_author_posts_link(); ?>.</i>
-							<i>Filed under <a href="#" rel="category"><?php the_category(', '); ?></a>. Total of <a href="<?php comments_link(); ?> "><?php comments_number( 'no comments', '1 comment', '% comments' ); ?></a> in the discussion.<?php edit_post_link('Admin Edit', ' ', '.'); ?></i>
+							<i>Filed under <a href="#" rel="category"><?php the_category(', '); ?></a>. Total of <a href="<?php comments_link(); ?> "><?php comments_number( 'no comments', '1 comment', '% comments' ); ?></a> in the discussion.</i>
 						</span>
 					</header>
 					
@@ -50,5 +62,15 @@
 		
 		<br style="clear:both;">
 
-		<?php get_sidebar( 'responsive' ); ?>
+		<?php
+		    if(isset($_GET['post_type'])) {
+		        $type = $_GET['post_type'];
+		        if($type == 'labnotebook') {?>
+		        	<?php get_sidebar('labnotebook_responsive'); ?>
+		        <?php    
+		        } else{?>
+		             <?php get_sidebar(); ?>
+		        <?php }
+		    }
+		?>
 <?php get_footer(); ?>
