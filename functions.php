@@ -145,6 +145,20 @@ add_action( 'init', 'labnotebook' );
 
 function taxonomies() {
     register_taxonomy(
+        'protocol',
+        'labnotebook',
+        array(
+            'labels' => array(
+                'name' => 'Protocols',
+                'add_new_item' => 'Add New Protocol',
+                'new_item_name' => "New Protocol"
+            ),
+            'show_ui' => true,
+            'show_tagcloud' => false,
+            'hierarchical' => true
+        )
+    );
+    register_taxonomy(
         'experiment',
         'labnotebook',
         array(
@@ -174,4 +188,73 @@ function taxonomies() {
     );
 }
 add_action( 'init', 'taxonomies', 0 );
+
+/**
+ * Apply styles to the visual editor
+ */  
+function tuts_mcekit_editor_style($url) {
+
+    if ( !empty($url) )
+        $url .= ',';
+
+    // Retrieves the plugin directory URL and adds editor stylesheet
+    // Change the path here if using different directories
+    $url .= trailingslashit( plugin_dir_url(__FILE__) ) . '/editor-styles.css';
+
+    return $url;
+}
+add_filter('mce_css', 'tuts_mcekit_editor_style');
+/**
+ * Add "Styles" drop-down
+ */  
+function tuts_mcekit_editor_buttons($buttons) {
+    array_unshift($buttons, 'styleselect');
+    return $buttons;
+}
+
+add_filter('mce_buttons_2', 'tuts_mcekit_editor_buttons');
+
+/**
+ * Add "Styles" drop-down content or classes
+ */  
+function tuts_mcekit_editor_settings($settings) {
+    if (!empty($settings['theme_advanced_styles']))
+        $settings['theme_advanced_styles'] .= ';';    
+    else
+        $settings['theme_advanced_styles'] = '';
+
+    /**
+     * Add styles in $classes array.
+     * The format for this setting is "Name to display=class-name;".
+     * More info: http://wiki.moxiecode.com/index.php/TinyMCE:Configuration/theme_advanced_styles
+     *
+     * To be allow translation of the class names, these can be set in a PHP array (to keep them
+     * readable) and then converted to TinyMCE's format. You will need to replace 'textdomain' with
+     * your theme's textdomain.
+     */
+    $classes = array(
+        __('Citation','textdomain') => 'citation',
+        __('Highlight','textdomain') => 'highlight'
+    );
+
+    $class_settings = '';
+    foreach ( $classes as $name => $value )
+        $class_settings .= "{$name}={$value};";
+
+    $settings['theme_advanced_styles'] .= trim($class_settings, '; ');
+    return $settings;
+} 
+add_filter('tiny_mce_before_init', 'tuts_mcekit_editor_settings');
+
+/*
+ * Add custom stylesheet to the website front-end with hook 'wp_enqueue_scripts'
+ * Enqueue the custom stylesheet in the front-end
+ */
+
+function tuts_mcekit_editor_enqueue() {
+  $StyleUrl = plugin_dir_url(__FILE__).'css/style.css';
+  wp_enqueue_style( 'myCustomStyles', $StyleUrl );
+}
+add_action('wp_enqueue_scripts', 'tuts_mcekit_editor_enqueue');
+
 ?>

@@ -13,7 +13,6 @@ Template Name: Lab Notebook page
 					
 					<header class="posthead">
 						<h2 class="bigger"><?php the_title(); ?></h2>
-						<h3>My Open Electronic Online Lab Notebook</h3>
 					</header>
 
 					<?php the_content(); ?>
@@ -50,8 +49,7 @@ Template Name: Lab Notebook page
 					<?php endwhile; ?>
 
 			        <?php else : ?>
-			            <h2>Not Found</h2>
-			            <?php get_search_form(); ?>
+			            <h2>No entries, yet</h2>
 			        <?php endif; ?>
 
 			        <?php $wp_query = $temp; ?>
