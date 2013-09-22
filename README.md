@@ -1,12 +1,12 @@
-afr
+WP_labnotebook
 ============
-A wordpress theme featuring an electronic lab notebook
+An electronic lab notebook based on wordpress
 ------------
-This theme is intended for researchers who wish to have an electronic record of their scientific research (such as [me](http://andre-rendeiro.me)).
+This wordpress theme is intended for researchers who wish to have an electronic record of their scientific research (such as [me](http://andre-rendeiro.me)).
 
 It provides a **Lab Notebook completely independent of a blog**, which might exist or not.
 
-'afr' is a Wordpress theme based on the [Bare Responsive template](http://www.hongkiat.com/blog/wordpress-responsive-template/).
+'WP_labnotebook' is based on the [Bare Responsive template](http://www.hongkiat.com/blog/wordpress-responsive-template/).
 
 # Lab notebook
 
