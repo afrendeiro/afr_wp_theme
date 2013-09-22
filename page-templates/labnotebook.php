@@ -23,7 +23,7 @@ Template Name: Lab Notebook page
 			         'post_type' => $type,
 			         'post_status' => 'publish',
 			         'paged' => $paged,
-			         'posts_per_page' => 2,
+			         'posts_per_page' => 20,
 			         'ignore_sticky_posts'=> 1
 			        );
 			        $temp = $wp_query; // assign ordinal query to temp variable for later use  
@@ -34,15 +34,20 @@ Template Name: Lab Notebook page
 						
 						<article id="post-<?php the_ID(); ?>" class="post postbrdr" role="article">
 							<header class="posthead">
-								<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+							<?//** TO HAVE POST LABNOTEBOOK TAXONOMY**//?>
+							<?php $type = get_post_type(); ?>
+						    	<?php if ($type == 'labnotebook') : ?>
+						    		<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php which_taxonomy_is_post();?>: <?php the_title(); ?></a></h2>
+						    		<?php else : ?>
+						    			<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+						    	<?php endif?>
 								<span class="meta">
 									<i>Published <time datetime="<?php echo the_time('Y-m-j'); ?>"><?php echo the_time(get_option('date_format')); ?></time> by <?php the_author_posts_link(); ?>.</i>
-									<i>Filed under <a href="#" rel="category"><?php the_category(', '); ?></a>.</i>
 								</span>
 							</header>
 							
 							<section class="post-content clearfix">
-								<?php the_content(); ?>
+								<?php the_excerpt(); ?>
 							</section>
 						</article>
 

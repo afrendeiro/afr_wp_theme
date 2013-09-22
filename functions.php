@@ -257,4 +257,34 @@ function tuts_mcekit_editor_enqueue() {
 }
 add_action('wp_enqueue_scripts', 'tuts_mcekit_editor_enqueue');
 
+function namespace_add_custom_types( $query ) {
+  if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+    $query->set( 'post_type', array(
+     'post', 'labnotebook'
+		));
+	  return $query;
+	}
+}
+add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
+
+function which_taxonomy_is_post() {
+    global $post, $post_id;
+    // get post by post id
+    $post = &get_post($post->ID);
+    // get post type by post
+    $post_type = $post->post_type;
+
+    // get post type taxonomies
+    $taxonomies = get_object_taxonomies($post_type);
+
+    foreach ($taxonomies as $taxonomy) {
+    	$terms = get_the_terms( $post->ID, $taxonomy );
+    	foreach ( $terms as $term ){
+	        if ($term->name = 'experiment'){
+	        	$tax = ucwords(str_replace('category','',$taxonomy));
+	        	echo $tax;
+	        }
+	    }
+	}
+}
 ?>

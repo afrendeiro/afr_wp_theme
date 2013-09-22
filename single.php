@@ -21,12 +21,19 @@
 							echo "</header>";
 				    	};
 					?>
+
 				<article id="post-<?php the_ID(); ?>" class="post" role="article">
 					<header class="posthead">
-						<h2 class="bigger"><?php the_title(); ?></h2>
+						<?//** TO HAVE POST LABNOTEBOOK TAXONOMY**//?>
+						<?php $type = get_post_type(); ?>
+					    	<?php if ($type == 'labnotebook') : ?>
+					    		<h2 class="bigger"><?php which_taxonomy_is_post();?>: <?php the_title(); ?></h2>
+					    		<?php else : ?>
+					    			<h2 class="bigger"><?php the_title(); ?></h2>
+					    		}
+					    	<?php endif?>
 						<span class="meta">
 							<i>Published <time datetime="<?php echo the_time('Y-m-j'); ?>"><?php echo the_time(get_option('date_format')); ?></time> by <?php the_author_posts_link(); ?>.</i>
-							<i>Filed under <a href="#" rel="category"><?php the_category(', '); ?></a>.</i>
 						</span>
 					</header>
 					
