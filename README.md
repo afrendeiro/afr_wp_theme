@@ -31,3 +31,7 @@ There are several types of page templates available:
 - Front page
 
 You can use any page (blog, lab notebook, about, etc.) for your front page, but I also provide a 'Front page' template, which doesn't include sidebars or footer.
+
+### Recomended plugins
+- [WP_Markdown](http://wordpress.org/plugins/wp-markdown/screenshots/)
+- 

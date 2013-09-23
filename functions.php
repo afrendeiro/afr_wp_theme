@@ -269,6 +269,7 @@ add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
 
 function which_taxonomy_is_post() {
     global $post, $post_id;
+    error_reporting(E_ERROR | E_PARSE);
     // get post by post id
     $post = &get_post($post->ID);
     // get post type by post
