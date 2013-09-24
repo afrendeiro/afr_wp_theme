@@ -27,6 +27,7 @@
 <?php include_once("analyticstracking.php") ?>
 <?php add_filter('show_admin_bar', '__return_false');?>
 
+<a id='home' href='/wp-admin'><img class="social" src="<?php bloginfo('template_directory');?>/img/32x32/wordpress-32.png"></a>
 <nav id="n">
 
   <h1 id='sitetitle'><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>

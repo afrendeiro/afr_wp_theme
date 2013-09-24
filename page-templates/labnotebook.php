@@ -36,11 +36,11 @@ Template Name: Lab Notebook page
 							<header class="posthead">
 							<?//** TO HAVE POST LABNOTEBOOK TAXONOMY**//?>
 							<?php $type = get_post_type(); ?>
-						    	<?php if ($type == 'labnotebook') : ?>
-						    		<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php which_taxonomy_is_post();?>: <?php the_title(); ?></a></h2>
-						    		<?php else : ?>
-						    			<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						    	<?php endif?>
+							   	<?php if ($type == 'labnotebook') : ?>
+							   		<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php which_taxonomy_is_post();?>: <?php the_title(); ?></a></h2>
+							   		<?php else : ?>
+							   			<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+							   	<?php endif?>
 								<span class="meta">
 									<i>Published <time datetime="<?php echo the_time('Y-m-j'); ?>"><?php echo the_time(get_option('date_format')); ?></time> by <?php the_author_posts_link(); ?>.</i>
 								</span>

@@ -288,4 +288,13 @@ function which_taxonomy_is_post() {
 	    }
 	}
 }
+
+
+function setup_theme_admin_menus() {
+	add_submenu_page('labnotebook.php',   
+        'Front Page Elements', 'Front Page', 'manage_options',   
+        'front-page-elements', 'options-general.php', 'theme_front_page_settings');   
+}
+
+add_action("admin_menu", "setup_theme_admin_menus");
 ?>
