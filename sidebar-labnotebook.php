@@ -8,5 +8,43 @@
 					<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search">
 					</form>
 				</div>
+
+				<div class="widget">
+					<h3 class="wtitle">Browse by category</h3>
+					<ul>
+						<?php $cat_name = 'Lab Notebook';
+						$cat_id = get_cat_ID($cat_name);
+						wp_list_categories(
+							array(
+								'orderby' => id,
+								'use_desc_for_title' => 0,
+								'child_of' => $cat_id,
+								'title_li' => __( '' )
+								)
+							);
+						?>
+					</ul>
+				</div>
+
+				<div class="widget">
+					<h3 class="title">Recent entries</h3>
+					<ul>
+						<?php
+							  $temp_query = $wp_query;
+							  query_posts('cat='.$cat_id);
+							  while (have_posts()) {
+							     the_post();
+							?>
+							<li>
+							  <?php the_time('m/d'); ?>:
+							  <a href="<?php the_permalink(); ?>" >
+							  <?php the_title(); ?></a>
+							</li>
+							<?php
+							} // end custom loop
+							$wp_query = $temp_query;
+						?>
+					</ul>
+				</div>
 				
 			</aside>
