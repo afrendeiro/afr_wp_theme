@@ -1,6 +1,11 @@
 <?php get_header(); ?>
 		<div id="content" class="wrapper">
-			<?php get_sidebar(); ?>
+			<?php
+			if (
+				is_category() &&
+				$this_category->category_parent == $cat_id) {
+					get_sidebar('labnotebook');
+			}; ?>
 			
 			<div id="main">
 				<header class="archiveshead">
@@ -8,8 +13,22 @@
 					<?php if (is_category('labnotebook')){ ?>
 					<h2>Lab notebook</h2>
 
+					
+
+					<?php
+					$this_category = get_category($cat);
+					$cat_name = 'Lab Notebook';
+					$cat_id = get_cat_ID($cat_name);
+
+						} elseif (
+							is_category() &&
+							$this_category->category_parent == $cat_id) { ?>
+								<h2>Lab notebook</h2>
+								<h3>'<?php single_cat_title(); ?>' Archives</h3>
+
+
 					<?php } elseif(is_category()) { ?>
-					<h2>'<?php single_cat_title(); ?>' Category Archives</h2>
+						<h2>'<?php single_cat_title(); ?>' Category Archives</h2>
 					<?php } ?>
 
 				<?php } elseif(is_tag()) { ?>
@@ -35,10 +54,10 @@
 					<header class="posthead">
 						<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 						<span class="meta">
-							<i>Published <time datetime="<?php echo the_time('Y-m-j'); ?>"><?php echo the_time(get_option('date_format')); ?></time> by <?php the_author_posts_link(); ?>.</i>
+							<i>Published <time datetime="<?php echo the_time('Y-m-j'); ?>"><?php echo the_time(get_option('date_format')); ?></time></i>
 							<?php if (is_category('labnotebook')){ ?>
 							<?php } else { ?>
-							<i>Filed under <a href="#" rel="category"><?php the_category(', '); ?></a>. Total of <a href="<?php comments_link(); ?> "><?php comments_number( 'no comments', '1 comment', '% comments' ); ?></a> in the discussion.</i>
+							<i>Filed under <a href="#" rel="category"><?php the_category(', '); ?></a>.</i>
 							<?php } ?>
 						</span>
 					</header>
@@ -71,5 +90,10 @@
 		
 		<br style="clear:both;">
 
-		<?php get_sidebar( 'responsive' ); ?>
+		<?php
+			if (
+				is_category() &&
+				$this_category->category_parent == $cat_id) {
+					get_sidebar('labnotebook_responsive');
+			}; ?>
 <?php get_footer(); ?>
